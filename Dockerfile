@@ -8,7 +8,7 @@ RUN unzip LanguageTool-$VERSION.zip \
 
 WORKDIR /LanguageTool-$VERSION
 
-CMD java -cp languagetool-server.jar org.languagetool.server.HTTPServer --port $PORT --public
+CMD java -Xmx400m -Xss512k -cp languagetool-server.jar org.languagetool.server.HTTPServer --port $PORT --public
 
 USER nobody
 
