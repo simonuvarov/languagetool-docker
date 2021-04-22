@@ -8,9 +8,9 @@ RUN unzip LanguageTool-$VERSION.zip \
 
 WORKDIR /LanguageTool-$VERSION
 
-CMD ["java", "-cp", "languagetool-server.jar", "org.languagetool.server.HTTPServer", "--port", "8010", "--public" ]
+CMD java -cp languagetool-server.jar org.languagetool.server.HTTPServer --port $PORT --public
 
 USER nobody
 
-EXPOSE 8010
+EXPOSE $PORT
 
