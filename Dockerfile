@@ -1,6 +1,6 @@
 FROM openjdk:14-alpine
 
-ENV VERSION 5.2 
+ENV VERSION 5.3
 ADD https://www.languagetool.org/download/LanguageTool-$VERSION.zip /LanguageTool-$VERSION.zip
 
 RUN unzip LanguageTool-$VERSION.zip \
@@ -8,7 +8,9 @@ RUN unzip LanguageTool-$VERSION.zip \
 
 WORKDIR /LanguageTool-$VERSION
 
-CMD java -Xmx400m -Xss512k -cp languagetool-server.jar org.languagetool.server.HTTPServer --port $PORT --public
+ADD languagetool.cfg ./languagetool.cfg
+
+CMD java -Xmx512m -Xss512k -cp languagetool-server.jar org.languagetool.server.HTTPServer --port $PORT --public --config languagetool.cfg
 
 USER nobody
 
