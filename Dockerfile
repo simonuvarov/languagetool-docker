@@ -10,7 +10,7 @@ WORKDIR /LanguageTool-$VERSION
 
 ADD languagetool.cfg ./languagetool.cfg
 
-CMD java -Xmx384m -Xms256m -Xss512k -cp languagetool-server.jar org.languagetool.server.HTTPServer --port $PORT --public --config languagetool.cfg
+CMD java -Xmx256m -Xms128m -Xss512k -cp languagetool-server.jar org.languagetool.server.HTTPServer --port $PORT --public --config languagetool.cfg
 
 USER nobody
 
