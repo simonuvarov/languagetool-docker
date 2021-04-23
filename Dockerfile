@@ -1,4 +1,4 @@
-FROM openjdk:14-alpine
+FROM openjdk:11-jre
 
 ENV VERSION 5.3
 ADD https://www.languagetool.org/download/LanguageTool-$VERSION.zip /LanguageTool-$VERSION.zip
